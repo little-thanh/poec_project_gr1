@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  h1 POEC project
+  p.lead A project to evaluate your QA abilities
+  hr
+  .row
+    .col-md-12
+      h2 Une nouvelle fonctionnalité
+      p
+        | L'entreprise débute dans l'implémentation des différentes fonctionnalités d'une nouvelle application. #[br]
+        | L'équipe produit est toute nouvelle, les process / workflow se mettent en place. #[br]
+        | Une partie de l'équipe produit, celle dans laquelle vous travaillez, s'occupe du domaine "User". #[br]
+        | L'objectif de cette équipe est de faciliter les parcours de création de compte et de login.
+      p Une première brique technique existe, avec un formulaire d'inscription + login classique (e-mail, mot de passe). Malheureusement, ce dernier ne possède pas encore de tests automatisés (unitaire, intégration, e2e).
+      p Le produit a entendu parlé d'une fonctionnalité formidable : l'authentification via Google OAuth 2.0.
+      p Il a donc créé un ticket à cet égard à destination de l'équipe, pour implémentation.
+
+      h2 User story
+      p
+        i En tant qu'utilisateur final, nous souhaitons pouvoir nous connecter à l'application avec nos identifiants et mot de passe, mais également avec Google OAuth.
+        i L'équipe technique devra prendre soin d'assurer la rétro-compatibilité (= un utilisateur doit pouvoir se logguer avec les deux solutions, indépendamment de laquelle il s'est inscrit initialement)#[br]
+        i Etant donné le succès actuel de l'application, la direction nous a indiqué qu'aucun bug ne sera toléré.
+
+      p Le nouveau Product Owner ayant écrit ce ticket, n'a écrit que ces informations...
+
+      h2 Enoncé du projet
+      p
+        | Votre objectif en tant que nouvelle équipe QA va être d'apporter votre expérience afin :
+      ul
+        li D'améliorer les spécifications de l'user story,
+        ul
+          li Rajoutez tous les éléments que vous jugez nécessaires au contenu de la story technique,
+          li Dans cette user story seront décrits les différents "use cases" de la feature, ainsi que les cas de tests.
+          li D'implémenter des tests fonctionnels automatisés,
+        ul
+          li Vous pouvez/devez implémenter tous les tests que vous jugez cohérents d'écrire.
+          li Etant donné qu'il ne sera pas possible d'écrire de tests e2e sur la fonctionnalité Google OAuth tant que les développeurs n'auront pas mis à disposition l'interface, indiquer quels sont les tests automatisés qui seront menés / possibles de faire / recommandés.
+      h2 Détails
+      ul
+        li Vos choix devront être argumentés
+        li Si vous changez la structure de l'user story, vous devrez proposer un modèle d'user story,
+        li Vos cas de tests doivent être structurés, précis,
+        li Un schéma explicatif de la fonctionnalité est souhaité pour faciliter la compréhension de la feature
+        li Toute recommandation / remarques concernant la nouvelle fonctionnalité ou l'existant est appréciée.
+        li Votre code :
+        ul
+          li doit être compréhensible et si besoin, commenté,
+          li doit être versionné,
+          li si les tests s'exécutent à un changement du code source, c'est un plus non négligeable.
+        li Seuls les tests incombant à une équipe de QA sont demandés,
+        li Le rendu :
+          ul
+            li Devra être fait envoyé sur un repository Github,
+            li Votre présentation orale peut être accompagnée d'un diaporama
