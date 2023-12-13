@@ -15,7 +15,7 @@ describe('Log account', () => {
     cy.url().should('contain', baseurl)
   })
 
-  it.only('login page', () => {
+  it('login page', () => {
     cy.visit('/login')
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="password"]').should('exist')
