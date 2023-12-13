@@ -7,5 +7,5 @@
 - Visit :  `http://localhost:8080/`
 
 ## How to test
-    npm init
+    npm install
     npx cypress open
