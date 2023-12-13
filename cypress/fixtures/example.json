@@ -10,6 +10,11 @@
     "password": "Qwerty-12"
   },
   {
+    "name": "Dave",
+    "email": "dave-pwerty@mail.fr",
+    "password": "Pwerty-12"
+  },
+  {
     "name": "Little Groupe",
     "email": "littlegroupe@ecoles-epsi.fr",
     "password": "littlegroupe"
