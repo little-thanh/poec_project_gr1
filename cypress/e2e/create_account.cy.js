@@ -13,6 +13,7 @@ describe('Create account', () => {
     cy.get('button').contains('Signup').click()
     cy.get('a[href="/account"]').contains('My account')
   })
+
   it.skip('Account already exist', () => {
     cy.visit('/')
     cy.get('a[href="/signup"]').click()
@@ -23,6 +24,7 @@ describe('Create account', () => {
     cy.get('button').contains('Signup').click()
     cy.get('.alert-danger').contains('Account with that email address already exists.')
   })
+
   it('Test with empty ', () => {
     cy.visit('/')
     cy.get('a[href="/signup"]').click()
