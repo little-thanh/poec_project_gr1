@@ -6,6 +6,7 @@ describe('Create account', () => {
   const wrongPassword = 'Qwerty-12'
   it.skip('Nominal test', () => {
     cy.visit('/')
+    cy.cookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type(userEmail)
@@ -17,6 +18,7 @@ describe('Create account', () => {
 
   it.skip('Account already exist', () => {
     cy.visit('/')
+    cy.cookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type(userEmail)
@@ -28,6 +30,7 @@ describe('Create account', () => {
 
   it.skip('Test with empty ', () => {
     cy.visit('/')
+    cy.cookie()
     cy.get('a[href="/signup"]').click()
     cy.get('button').contains('Signup').click()
     cy.get('#fullname[required]')
@@ -48,6 +51,7 @@ describe('Create account', () => {
   it('Test with viewport', () => {
     cy.viewport(991, 759)
     cy.visit('/')
+    cy.cookie()
     cy.get('.navbar-toggler').should('be.visible')
     cy.get('.navbar-toggler').click()
     cy.get('a[href="/signup"]').should('be.visible')

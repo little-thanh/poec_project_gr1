@@ -19,6 +19,11 @@ Cypress.Commands.add('login', (email, password) => {
     // Cliquer sur le button 'Login'
     cy.get('button[type="submit"]').click()
 })
+
+Cypress.Commands.add('cookie', () => {
+    cy.visit('/')
+    cy.get('.cc-compliance').click()
+})
 //
 //
 // -- This is a child command --
