@@ -32,7 +32,6 @@ describe('Log account', () => {
     cy.get('#email[required]')
   })
 
-
   it('should be a password invalid', () => {
     cy.visit('/login')
     cy.get('input[name="email"]').type(email)
@@ -57,7 +56,6 @@ describe('Log account', () => {
     cy.get('button[type="submit"]').click()
     //cy.contains('Veuillez renseigner ce champ.').should('exist')
   })
-
 
   it('forgot password with mail valid', () => {
     cy.visit('/login')
