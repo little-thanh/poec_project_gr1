@@ -47,14 +47,4 @@ describe('Create account', () => {
     cy.get('button').contains('Signup').click()
     cy.get('div[role="alert"]').contains('Passwords do not match')
   })
-
-  it('Test with viewport width-max 991', () => {
-    cy.viewport(991, 759)
-    cy.visit('/')
-    cy.cookie()
-    cy.get('.navbar-toggler').should('be.visible')
-    cy.get('.navbar-toggler').click()
-    cy.get('a[href="/signup"]').should('be.visible')
-    cy.get('a[href="/signup"]').click()
-  })
 })

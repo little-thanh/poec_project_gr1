@@ -16,4 +16,14 @@ describe('Viewport example', () => {
         cy.url().should('contain', baseurl)
     })
 
+    it('Test display button menu with viewport width-max 991', () => {
+      cy.viewport(991, 759)
+      cy.visit('/')
+      cy.cookie()
+      cy.get('.navbar-toggler').should('be.visible')
+      cy.get('.navbar-toggler').click()
+      cy.get('a[href="/signup"]').should('be.visible')
+      cy.get('a[href="/signup"]').click()
+    })
+
 })
