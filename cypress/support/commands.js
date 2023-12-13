@@ -10,7 +10,15 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', (email, password) => {
+    // Rediriger vers la page login
+    cy.visit('/login')
+    // Se connecter à un compte valide
+    cy.get('input[name="email"]').type(email)
+    cy.get('input[name="password"]').type(password)
+    // Cliquer sur le button 'Login'
+    cy.get('button[type="submit"]').click()
+})
 //
 //
 // -- This is a child command --
