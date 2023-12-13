@@ -8,4 +8,5 @@
 
 ## How to test
     npm init
+    npm install
     npx cypress open
