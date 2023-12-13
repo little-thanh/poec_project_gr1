@@ -21,7 +21,6 @@ Cypress.Commands.add('login', (email, password) => {
 })
 
 Cypress.Commands.add('cookie', () => {
-    cy.visit('/')
     cy.get('.cc-compliance').click()
 })
 //
