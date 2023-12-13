@@ -84,7 +84,7 @@ app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(limiter);
+//app.use(limiter);
 app.use(session({
   resave: true,
   saveUninitialized: true,
