@@ -48,7 +48,7 @@ describe('Create account', () => {
     cy.get('div[role="alert"]').contains('Passwords do not match')
   })
 
-  it('Test with viewport', () => {
+  it('Test with viewport width-max 991', () => {
     cy.viewport(991, 759)
     cy.visit('/')
     cy.cookie()
