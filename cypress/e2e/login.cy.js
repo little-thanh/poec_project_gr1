@@ -6,6 +6,7 @@ describe('Log account', () => {
 
   it('should have a link to go to login page', () => {
     cy.visit('/')
+    cy.cookie()
     cy.get('.collapse a[href="/login"]').click()
     cy.url().should('contain', '/login')
     cy.get('input[name="email"]').should('exist')
@@ -17,6 +18,7 @@ describe('Log account', () => {
 
   it('login page', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="password"]').should('exist')
     cy.login(email, password)
@@ -27,6 +29,7 @@ describe('Log account', () => {
 
   it('should be a email invalid', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('input[name="email"]').type('littlegroupe')
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
@@ -34,6 +37,7 @@ describe('Log account', () => {
 
   it('should be a password invalid', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('input[name="email"]').type(email)
     cy.get('input[name="password"]').type('littlegroup')
     cy.get('button[type="submit"]').click()
@@ -43,6 +47,7 @@ describe('Log account', () => {
 
   it('should be able to logout', () => {
     cy.visit('/')
+    cy.cookie()
     cy.get('.collapse a[href="/login"]').click()
     cy.url().should('contain', '/login')
     cy.login(email, password)
@@ -53,12 +58,14 @@ describe('Log account', () => {
 
   it('should be a login and password empty', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('button[type="submit"]').click()
     //cy.contains('Veuillez renseigner ce champ.').should('exist')
   })
 
   it('forgot password with mail valid', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -69,6 +76,7 @@ describe('Log account', () => {
 
   it('mail not valid', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -79,6 +87,7 @@ describe('Log account', () => {
 
   it('email not in BDD', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -90,6 +99,7 @@ describe('Log account', () => {
 
   it('empty email forgot password', () => {
     cy.visit('/login')
+    cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     //cy.get('input[name="email"]').should('exist')
