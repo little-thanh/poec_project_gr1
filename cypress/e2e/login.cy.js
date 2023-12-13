@@ -15,7 +15,7 @@ describe('Log account', () => {
     cy.url().should('contain', baseurl)
   })
 
-  it.only('login page', () => {
+  it('login page', () => {
     cy.visit('/login')
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="password"]').should('exist')
@@ -31,7 +31,6 @@ describe('Log account', () => {
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
   })
-
 
   it('should be a password invalid', () => {
     cy.visit('/login')
@@ -57,7 +56,6 @@ describe('Log account', () => {
     cy.get('button[type="submit"]').click()
     //cy.contains('Veuillez renseigner ce champ.').should('exist')
   })
-
 
   it('forgot password with mail valid', () => {
     cy.visit('/login')
