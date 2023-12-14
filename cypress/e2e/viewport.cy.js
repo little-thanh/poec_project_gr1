@@ -1,12 +1,12 @@
 describe('Viewport example', () => {
     const baseurl = "http://localhost:8080/"
-    const full_name = 'Little Groupe'
     const email = 'littlegroupe@ecoles-epsi.fr'
     const password = 'littlegroupe'
 
     it('should display a button menu and button login on a mobile configuration (screen width <= 991px)', () => {
         cy.viewport(991, 759)
-        cy.visit('http://localhost:8080/')
+        cy.visit('/')
+        cy.cookie()
         cy.get('.navbar-toggler-icon').should('be.visible')
         cy.get('.navbar-toggler').click()
         cy.get('.collapse a[href="/login"]').should('be.visible')
@@ -25,5 +25,4 @@ describe('Viewport example', () => {
       cy.get('a[href="/signup"]').should('be.visible')
       cy.get('a[href="/signup"]').click()
     })
-
 })
