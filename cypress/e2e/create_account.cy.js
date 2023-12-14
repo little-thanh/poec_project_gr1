@@ -16,7 +16,7 @@ describe('Create account', () => {
     cy.get('a[href="/account"]').contains('My account')
   })
 
-  it.skip('Account already exist', () => {
+  it.skip('should check the page when the account already exists', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()
@@ -28,7 +28,7 @@ describe('Create account', () => {
     cy.get('.alert-danger').contains('Account with that email address already exists.')
   })
 
-  it.skip('Test with empty ', () => {
+  it.skip('should check the page with all empty values', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()

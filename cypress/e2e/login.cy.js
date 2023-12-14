@@ -4,7 +4,7 @@ describe('Log account', () => {
   const email = 'littlegroupe@ecoles-epsi.fr'
   const password = 'littlegroupe'
 
-  it('should have a link to go to login page', () => {
+  it('should navigate to the login page', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('.collapse a[href="/login"]').click()
@@ -16,7 +16,7 @@ describe('Log account', () => {
     cy.url().should('contain', baseurl)
   })
 
-  it('login page', () => {
+  it('should check the login page', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('input[name="email"]').should('exist')
@@ -27,7 +27,7 @@ describe('Log account', () => {
     cy.url().should('contain', baseurl)
   })
 
-  it('should be a email invalid', () => {
+  it('should check an invalid email', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('input[name="email"]').type('littlegroupe')
@@ -35,7 +35,7 @@ describe('Log account', () => {
     cy.get('#email[required]')
   })
 
-  it('should be a password invalid', () => {
+  it('should check an invalid password', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('input[name="email"]').type(email)
@@ -45,7 +45,7 @@ describe('Log account', () => {
     cy.url().should('contain', '/')
   })
 
-  it('should be able to logout', () => {
+  it('should be able to log out', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('.collapse a[href="/login"]').click()
@@ -56,14 +56,14 @@ describe('Log account', () => {
     cy.url().should('contain', baseurl)
   })
 
-  it('should be a login and password empty', () => {
+  it('should check the page with an empty login and password', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('button[type="submit"]').click()
     //cy.contains('Veuillez renseigner ce champ.').should('exist')
   })
 
-  it('forgot password with mail valid', () => {
+  it('should check the option "forgotten password" by submitting a valid email', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
@@ -74,7 +74,7 @@ describe('Log account', () => {
     cy.contains('Error sending the password reset message. Please try again shortly.').should('exist')
   })
 
-  it('mail not valid', () => {
+  it('should check the page when the email is not valid', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
@@ -85,7 +85,7 @@ describe('Log account', () => {
     cy.get('#email[required]')
   })
 
-  it('email not in BDD', () => {
+  it('should check when the email is not in the DB', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('.container a[href="/forgot"]').click()
@@ -97,7 +97,7 @@ describe('Log account', () => {
     cy.contains('Account with that email address does not exist.').should('exist')
   })
 
-  it('empty email forgot password', () => {
+  it('should check when the email is empty and password forgotten', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('.container a[href="/forgot"]').click()

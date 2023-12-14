@@ -4,7 +4,7 @@ describe('Viewport example', () => {
     const email = 'littlegroupe@ecoles-epsi.fr'
     const password = 'littlegroupe'
 
-    it('should display a button menu and button login on a mobile configuration (screen witdh <= 991px)', () => {
+    it('should display a button menu and button login on a mobile configuration (screen width <= 991px)', () => {
         cy.viewport(991, 759)
         cy.visit('http://localhost:8080/')
         cy.get('.navbar-toggler-icon').should('be.visible')
@@ -16,7 +16,7 @@ describe('Viewport example', () => {
         cy.url().should('contain', baseurl)
     })
 
-    it('Test display button menu with viewport width-max 991', () => {
+    it('should check display button menu with viewport width-max 991', () => {
       cy.viewport(991, 759)
       cy.visit('/')
       cy.cookie()
