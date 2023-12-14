@@ -45,6 +45,13 @@ describe('Log account', () => {
     cy.url().should('contain', '/')
   })
 
+  it('should check the page with an empty login and password', () => {
+    cy.visit('/login')
+    cy.cookie()
+    cy.get('button[type="submit"]').click()
+    //cy.contains('Veuillez renseigner ce champ.').should('exist')
+  })
+
   it('should be able to log out', () => {
     cy.visit('/')
     cy.cookie()
@@ -54,13 +61,6 @@ describe('Log account', () => {
     cy.contains('Success! You are logged in.').should('exist')
     cy.get('.collapse a[href="/logout"]').click()
     cy.url().should('contain', baseurl)
-  })
-
-  it('should check the page with an empty login and password', () => {
-    cy.visit('/login')
-    cy.cookie()
-    cy.get('button[type="submit"]').click()
-    //cy.contains('Veuillez renseigner ce champ.').should('exist')
   })
 
   it('should check the option "forgotten password" by submitting a valid email', () => {
