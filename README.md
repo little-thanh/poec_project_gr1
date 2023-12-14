@@ -21,7 +21,4 @@
     - Click "Start 2E2 Testing in Chrome
     - Browser Chrome open automaticly
     - Click the onglet "Specs"
-    - Choose create_account.cy.js
-    - The tests run automaticly
-    - Choose login.cy.js
-    - The tests run automaticly
+    - Choose example : login.cy.js
