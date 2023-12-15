@@ -1,8 +1,8 @@
 describe('Create account', () => {
   const baseurl = "http://localhost:8080/"
-  const userName = 'John'
-  const userEmail = 'john-azerty@mail.fr'
-  const userPassword = 'Azerty-12'
+  const userName = 'Dave'
+  const userEmail = 'dave-pwerty@mail.fr'
+  const userPassword = 'Pwerty-12'
   const wrongPassword = 'Qwerty-12'
   it.skip('Nominal test', () => {
     cy.visit('/')
@@ -13,10 +13,10 @@ describe('Create account', () => {
     cy.get('input[id="password"]').type(userPassword)
     cy.get('input[id="confirmPassword"]').type(userPassword)
     cy.get('button').contains('Signup').click()
-    cy.get('a[href="/account"]').contains('My account')
+    cy.get('a[href="/account"]').contains('be.visible', 'My Account')
   })
 
-  it.skip('should check the page when the account already exists', () => {
+  it('should check the page when the account already exists', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()
@@ -24,7 +24,10 @@ describe('Create account', () => {
     cy.get('input[id="email"]').type(userEmail)
     cy.get('input[id="password"]').type(userPassword)
     cy.get('input[id="confirmPassword"]').type(userPassword)
+    const signup = "https://www.google-analytics.com/j/*"
+    cy.intercept('POST', signup).as('signUp')
     cy.get('button').contains('Signup').click()
+    cy.wait('@signUp')
     cy.get('.alert-danger').contains('Account with that email address already exists.')
   })
 
@@ -46,6 +49,9 @@ describe('Create account', () => {
     cy.get('#confirmPassword[required]').type(wrongPassword)
     cy.get('button').contains('Signup').click()
     cy.get('div[role="alert"]').contains('Passwords do not match')
+    cy.get('#confirmPassword[required]').type(userPassword)
+    cy.get('button').contains('Signup').click()
+    cy.get('div[role="alert"]').contains('Acccount with that email address already exists.')
   })
 
   it.skip('should check the page with an invalid email', () => {
