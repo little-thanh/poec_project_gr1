@@ -1,8 +1,8 @@
 describe('Create account', () => {
   const baseurl = "http://localhost:8080/"
-  const userName = 'Dave'
-  const userEmail = 'dave-pwerty@mail.fr'
-  const userPassword = 'Pwerty-12'
+  const userName = 'John'
+  const userEmail = 'john-azerty@mail.fr'
+  const userPassword = 'Azerty-12'
   const wrongPassword = 'Qwerty-12'
   it.skip('Nominal test', () => {
     cy.visit('/')
@@ -65,6 +65,7 @@ describe('Create account', () => {
     cy.get('#email[required]')
     cy.get('button').contains('Signup').click()
   })
+  
   it.only('should check the page with an invalid password', () => {
     cy.visit('/')
     cy.cookie()
