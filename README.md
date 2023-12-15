@@ -1,7 +1,14 @@
-### Doc version : v1 - 13/12/2023
+# POEC PROJECT GROUPE 1
+
+## Doc version : v1 - 15/12/2023
+### © Little-Groupe
+- Little-Thanh
+- Little-Vanna
+- Little-Salim
+- Little-Anna
 
 ## Project description
-....
+Project to evaluate QA skills by creating manual and automation tests on an account creation and login on a website
 
 ## Pre-requisites
 - docker (& docker-compose)
