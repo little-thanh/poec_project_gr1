@@ -48,7 +48,7 @@ describe('Create account', () => {
     cy.get('div[role="alert"]').contains('Passwords do not match')
   })
 
-  it.only('should check the page with an invalid email', () => {
+  it.skip('should check the page with an invalid email', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()

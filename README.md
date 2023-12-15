@@ -8,7 +8,8 @@
 - Little-Anna
 
 ## Project description
-Project to evaluate QA skills by creating manual and automation tests on an account creation and login on a website
+Project to evaluate QA skills in manual and automated tests for website login and account creation functionalities
+
 
 ## Pre-requisites
 - docker (& docker-compose)
