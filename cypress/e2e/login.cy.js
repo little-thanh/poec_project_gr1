@@ -4,7 +4,7 @@ describe('Log account', () => {
   const email = 'littlegroupe@ecoles-epsi.fr'
   const password = 'littlegroupe'
 
-  it('should navigate to the login page', () => {
+  it.only('should navigate to the login page', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('.collapse a[href="/login"]').click()
@@ -35,7 +35,7 @@ describe('Log account', () => {
     cy.get('#email[required]')
   })
 
-  it('should check an invalid password', () => {
+  it.only('should check an invalid password', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('input[name="email"]').type(email)

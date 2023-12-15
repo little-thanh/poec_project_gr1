@@ -4,7 +4,7 @@ describe('Create account', () => {
   const userEmail = 'john-azerty@mail.fr'
   const userPassword = 'Azerty-12'
   const wrongPassword = 'Qwerty-12'
-  it.skip('Nominal test', () => {
+  it.only('Nominal test', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()
@@ -31,7 +31,7 @@ describe('Create account', () => {
     cy.get('.alert-danger').contains('Account with that email address already exists.')
   })
 
-  it.skip('should check the page with all empty values', () => {
+  it('should check the page with all empty values', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()
@@ -54,7 +54,7 @@ describe('Create account', () => {
     cy.get('div[role="alert"]').contains('Acccount with that email address already exists.')
   })
 
-  it.skip('should check the page with an invalid email', () => {
+  it('should check the page with an invalid email', () => {
     cy.visit('/')
     cy.cookie()
     cy.get('a[href="/signup"]').click()
@@ -65,7 +65,7 @@ describe('Create account', () => {
     cy.get('#email[required]')
     cy.get('button').contains('Signup').click()
   })
-  
+
   it.only('should check the page with an invalid password', () => {
     cy.visit('/')
     cy.cookie()
