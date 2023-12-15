@@ -33,3 +33,7 @@ In the Terminal :
    - Click "Start 2E2 Testing" in Chrome
    - Browser Chrome open automatically
    - Choose example : "login.cy.js" in the folder "cypress\e2e"
+
+## Credits
+
+Credit to Little-boy for the project

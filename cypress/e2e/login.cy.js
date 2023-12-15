@@ -106,5 +106,4 @@ describe('Log account', () => {
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
   })
-
 })

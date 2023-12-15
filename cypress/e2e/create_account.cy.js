@@ -4,6 +4,7 @@ describe('Create account', () => {
   const userEmail = 'john-azerty@mail.fr'
   const userPassword = 'Azerty-12'
   const wrongPassword = 'Qwerty-12'
+  
   it.only('Nominal test', () => {
     cy.visit('/')
     cy.cookie()
