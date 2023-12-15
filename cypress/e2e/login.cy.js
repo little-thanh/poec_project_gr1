@@ -12,7 +12,7 @@ describe('Log account', () => {
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="password"]').should('exist')
     cy.login(email, password)
-    cy.contains('Success! You are logged in.').should('exist')
+    cy.contains('Success! You are logged in.').should('be.visible')
     cy.url().should('contain', baseurl)
   })
 
@@ -23,7 +23,7 @@ describe('Log account', () => {
     cy.get('input[name="password"]').should('exist')
     cy.login(email, password)
     //cy.wait('@login')
-    cy.contains('Success! You are logged in.').should('exist')
+    cy.contains('Success! You are logged in.').should('be.visible')
     cy.url().should('contain', baseurl)
   })
 
@@ -41,7 +41,7 @@ describe('Log account', () => {
     cy.get('input[name="email"]').type(email)
     cy.get('input[name="password"]').type('littlegroup')
     cy.get('button[type="submit"]').click()
-    cy.contains('Invalid email or password.').should('exist')
+    cy.contains('Invalid email or password.').should('be.visible')
     cy.url().should('contain', '/')
   })
 
@@ -49,7 +49,7 @@ describe('Log account', () => {
     cy.visit('/login')
     cy.cookie()
     cy.get('button[type="submit"]').click()
-    //cy.contains('Veuillez renseigner ce champ.').should('exist')
+    cy.get('#email[required]')
   })
 
   it('should be able to log out', () => {
@@ -58,7 +58,7 @@ describe('Log account', () => {
     cy.get('.collapse a[href="/login"]').click()
     cy.url().should('contain', '/login')
     cy.login(email, password)
-    cy.contains('Success! You are logged in.').should('exist')
+    cy.contains('Success! You are logged in.').should('be.visible')
     cy.get('.collapse a[href="/logout"]').click()
     cy.url().should('contain', baseurl)
   })
@@ -71,7 +71,7 @@ describe('Log account', () => {
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="email"]').type(email)
     cy.get('button[type="submit"]').click()
-    cy.contains('Error sending the password reset message. Please try again shortly.').should('exist')
+    cy.contains('Error sending the password reset message. Please try again shortly.').should('be.visible')
   })
 
   it('should check the page when the email is not valid', () => {
@@ -94,7 +94,7 @@ describe('Log account', () => {
     cy.get('input[name="email"]').type('littlegroup@ecoles-epsi.fr')
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
-    cy.contains('Account with that email address does not exist.').should('exist')
+    cy.contains('Account with that email address does not exist.').should('be.visible')
   })
 
   it('should check when the email is empty and password forgotten', () => {
@@ -106,4 +106,5 @@ describe('Log account', () => {
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
   })
+
 })
