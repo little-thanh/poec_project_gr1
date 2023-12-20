@@ -6,7 +6,7 @@ describe('Log account', () => {
 
   it.only('should navigate to the login page', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.collapse a[href="/login"]').click()
     cy.url().should('contain', '/login')
     cy.get('input[name="email"]').should('exist')
@@ -18,7 +18,7 @@ describe('Log account', () => {
 
   it('should check the login page', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('input[name="email"]').should('exist')
     cy.get('input[name="password"]').should('exist')
     cy.login(email, password)
@@ -29,7 +29,7 @@ describe('Log account', () => {
 
   it('should check an invalid email', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('input[name="email"]').type('littlegroupe')
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
@@ -37,7 +37,7 @@ describe('Log account', () => {
 
   it.only('should check an invalid password', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('input[name="email"]').type(email)
     cy.get('input[name="password"]').type('littlegroup')
     cy.get('button[type="submit"]').click()
@@ -47,14 +47,14 @@ describe('Log account', () => {
 
   it('should check the page with an empty login and password', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('button[type="submit"]').click()
     cy.get('#email[required]')
   })
 
   it('should be able to log out', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.collapse a[href="/login"]').click()
     cy.url().should('contain', '/login')
     cy.login(email, password)
@@ -65,7 +65,7 @@ describe('Log account', () => {
 
   it('should check the option "forgotten password" by submitting a valid email', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -76,7 +76,7 @@ describe('Log account', () => {
 
   it('should check the page when the email is not valid', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -87,7 +87,7 @@ describe('Log account', () => {
 
   it('should check when the email is not in the DB', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     cy.get('input[name="email"]').should('exist')
@@ -99,7 +99,7 @@ describe('Log account', () => {
 
   it('should check when the email is empty and password forgotten', () => {
     cy.visit('/login')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('.container a[href="/forgot"]').click()
     cy.url().should('contain', '/forgot')
     //cy.get('input[name="email"]').should('exist')

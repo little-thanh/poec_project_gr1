@@ -20,7 +20,7 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('button[type="submit"]').click()
 })
 
-Cypress.Commands.add('cookie', () => {
+Cypress.Commands.add('closePopupCookie', () => {
     cy.get('.cc-compliance').click()
 })
 //

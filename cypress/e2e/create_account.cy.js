@@ -4,22 +4,25 @@ describe('Create account', () => {
   const userEmail = 'john-azerty@mail.fr'
   const userPassword = 'Azerty-12'
   const wrongPassword = 'Qwerty-12'
-  
+
   it.only('Nominal test', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type(userEmail)
     cy.get('input[id="password"]').type(userPassword)
     cy.get('input[id="confirmPassword"]').type(userPassword)
+    const postSignup = "https://www.google-analytics.com/j/*"
+    cy.intercept('POST', postSignup).as('signUp')
     cy.get('button').contains('Signup').click()
+    cy.wait('@signUp')
     cy.get('a[href="/account"]').contains('be.visible', 'My Account')
   })
 
   it('should check the page when the account already exists', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type(userEmail)
@@ -34,7 +37,7 @@ describe('Create account', () => {
 
   it('should check the page with all empty values', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('a[href="/signup"]').click()
     cy.get('button').contains('Signup').click()
     cy.get('#fullname[required]')
@@ -57,7 +60,7 @@ describe('Create account', () => {
 
   it('should check the page with an invalid email', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type("john-azerty")
@@ -69,7 +72,7 @@ describe('Create account', () => {
 
   it.only('should check the page with an invalid password', () => {
     cy.visit('/')
-    cy.cookie()
+    cy.closePopupCookie()
     cy.get('a[href="/signup"]').click()
     cy.get('input[id="fullname"]').type(userName)
     cy.get('input[id="email"]').type(userEmail)
